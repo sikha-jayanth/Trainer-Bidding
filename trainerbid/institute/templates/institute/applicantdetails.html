@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'institute/base.html' %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-6">
+            <form method="post" class="jumbotron">{%csrf_token%}
+                <h3>Applicant Details</h3>
+                {{form.as_p}}
+                <input type="submit" value="Update status">
+
+            </form>
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>
+
+{%endblock%}

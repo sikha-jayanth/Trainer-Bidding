@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'institute/base.html' %}
+{%load static %}
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <h2 style="margin-left:30%;">Welcome admin</h2>
+<br>
+
+<div class="card mb-3">
+
+  <div class="card-body">
+    <h5 class="card-title">Total number of Jobs posted: {{jobs}}</h5>
+
+
+  </div>
+</div>
+
+<br>
+<div class="card mb-3">
+
+  <div class="card-body">
+    <h5 class="card-title">Total number of Applications Recieved: {{applications}}</h5>
+
+
+  </div>
+</div>
+
+
+{%endblock%}

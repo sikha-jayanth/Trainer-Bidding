@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%extends 'trainer/base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+            <form method="post" class="jumbotron">{%csrf_token%}
+                <h3>Update Details</h3>
+                {{form.as_p}}
+                <input type="submit" value="Update profile">
+
+            </form>
+
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+{%endblock%}

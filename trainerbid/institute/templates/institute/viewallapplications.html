@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+{%extends 'institute/base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h4>Applications: {{count}}</h4>
+        </div>
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+            <form method="post" action="{%url 'searchbyid'%}">{%csrf_token%}
+                {%for field in form%}
+                {{field}}
+                {%endfor%}
+                <input type="submit" value="search by jobid">
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="row row-cols-1 row-cols-md-3">
+    {%for application in applications%}
+    <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{application.job_title}}</h5>
+                <p class="card-text">
+                <table class="table">
+                <tr>
+                        <th scope="col">JobID</th>
+                        <td>{{application.jobid}}</td>
+                    </tr>
+                <tr>
+                        <th scope="col">Location</th>
+                        <td>{{application.location}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Applicant</th>
+                        <td>{{application.name}}</td>
+                    </tr>
+                <tr>
+                        <th scope="col">Status</th>
+                        <td>{{application.status}}</td>
+                    </tr>
+
+
+                </table>
+                </p>
+            </div>
+            <div class="card-body">
+
+                <a href="{%url 'applicationdetails' application.id%}"
+                   class="card-link btn btn-primary btn-lg btn-block">view Application</a>
+                    <br>
+                <a href="{%url 'deleteapplication' application.id%}" class="card-link btn btn-danger btn-lg btn-block">Delete</a>
+
+            </div>
+
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}
+</body>
+</html>

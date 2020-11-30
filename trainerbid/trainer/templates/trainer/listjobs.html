@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+{%extends 'trainer/base.html'%}
+{%block body_block%}
+<div class="row row-cols-1 row-cols-md-3">
+    {%for requirement in requirements%}
+    <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{requirement.job_title}}</h5>
+                <p class="card-text">
+                <table class="table">
+                    <tr>
+                        <th scope="col">Skill</th>
+                        <td>{{requirement.skill_needed}}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="col">Years or experience</th>
+                        <td>{{requirement.years_of_experience}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Location</th>
+                        <td>{{requirement.location}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Rate/hour</th>
+                        <td>{{requirement.rate_per_hour}}</td>
+                    </tr>
+
+                </table>
+                </p>
+            </div>
+            <div class="card-body">
+                <a href="{%url 'apply' requirement.id%}" class="card-link btn btn-success">Apply</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{%extends 'trainer/base.html'%}
+{%load static %}
+{%block body_block%}
+
+<h2>welcome {{request.user}}</h2>
+<br>
+<img src="{% static 'images/Job-Board-Banner.png' %}" alt="My image" style="width:100%;margin-top:5%;">
+{%endblock%}

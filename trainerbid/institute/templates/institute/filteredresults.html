@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+{% extends 'institute/base.html' %}
+
+
+{% block body_block %}
+
+        <h4>Number of jobs posted : {{count}}</h4>
+
+            <form method="post" action="{%url ''%}">{%csrf_token%}
+                {{form.as_p}}
+<input type="submit">
+            </form>
+
+<div class="row row-cols-1 row-cols-md-3">
+    {%for requirement in requirements%}
+    <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{requirement.skill_needed}} Trainer</h5>
+                <p class="card-text">
+                <table class="table">
+
+                    <tr>
+                        <th scope="col">Years or experience</th>
+                        <td>{{requirement.years_of_experience}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Location</th>
+                        <td>{{requirement.location}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Rate/hour</th>
+                        <td>{{requirement.rate_per_hour}}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="{%url 'updaterequirements' requirement.id%}" class="card-link btn btn-success">Update</a>
+                        </td>
+                        <td><a href="{%url 'deleterequirement' requirement.id%}"
+                               class="card-link btn btn-danger">Delete</a></td>
+                    </tr>
+                </table>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}

@@ -1,0 +1,22 @@
+{%extends 'trainer/base.html'%}
+{%block body_block%}
+<div class="card border-danger mb-3" style="max-width:800px;;">
+
+    <div class="card-body text-danger">
+        <h3 class="card-title">{{profile.name}}</h3>
+        <p class="card-text">
+            <table class="table">
+        <tr><th scope="col">Username</th><td>{{profile.user}}</td></tr>
+        <tr><th scope="col">skill</th><td>{{profile.skill}}</td></tr>
+        <tr><th scope="col">years of experience</th><td>{{profile.years_of_experience}}</td></tr>
+        <tr><th scope="col">qualification</th><td>{{profile.qualification}}</td></tr>
+        <tr><th scope="col">cgpa</th><td>{{profile.cgpa}}</td></tr>
+        <tr><th scope="col">university</th><td>{{profile.university}}</td></tr>
+        <tr><th scope="col">email</th><td>{{profile.email}}</td></tr>
+        <tr><th scope="col">phone</th><td>{{profile.phone}}</td></tr>
+        <tr><th scope="col">place</th><td>{{profile.place}}</td></tr>
+        <tr><th scope="col">address</th><td>{{profile.address}}</td></tr>
+    </table>
+        </p>
+    </div>
+{%endblock%}

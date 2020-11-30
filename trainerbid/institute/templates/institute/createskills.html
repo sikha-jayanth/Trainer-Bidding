@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'institute/base.html' %}
+
+{% block body_block %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+
+            <form method="post" class="jumbotron" style="margin-top:5%;">{% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Add Skill" class="btn btn-primary btn-lg">
+
+
+            </form>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+     <table class="table table-bordered table-dark">
+        <thead>
+        <tr>
+
+            <th scope="col">Skills</th>
+            <th scope="col" colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for skill in skills%}
+        <tr>
+
+            <td>{{skill.skill}}</td>
+
+            <td><a href="{%url 'updateskill' skill.id%}" class="btn btn-outline-success">update</a></td>
+            <td><a href="{%url 'deleteskill' skill.id%}" class="btn btn-outline-danger">delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{%endblock%}
